@@ -19,3 +19,19 @@ summarize <- function(vector)
   print(paste("Element Product: ", prod(vector)))
 }
 summarize(nums)
+
+#Quesiton 3
+
+data("mtcars")
+
+paste("The mean of the MPG is", mean(mtcars$mpg))
+
+subCars <- mtcars[mtcars$cyl < 6, ]
+
+library(datasets)
+data <- mtcars
+list <- 1:32
+data <- data.frame(data, list)
+
+lines(data$list, data$hp)
+
