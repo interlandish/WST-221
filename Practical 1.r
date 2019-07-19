@@ -4,10 +4,13 @@ halve <- function(number) { return(number/2)}
 name <- "James Bond" 
 codename <- 007
 charVector <- vector("character", length = 5)
+charVector <- c("James", "Bond", " KGotso", "Modise", "File", "Debug")
+charVector
 logicMatrix <- matrix(c(TRUE, TRUE, FALSE, FALSE), nrow = 2, ncol = 2, byrow = TRUE)
 logicMatrix
 
 oddList <- list(halve, name, codename, charVector, logicMatrix)
+oddList
 
 # Question 2
 
@@ -26,14 +29,12 @@ data("mtcars")
 
 paste("The mean of the MPG is", mean(mtcars$mpg))
 
-subCars <- mtcars[mtcars$cyl < 6, ]
+subCars <- rownames(mtcars[mtcars$cyl < 6, ])
+list <- 1:nrow(mtcars)
+mtcars <- data.frame(mtcars, list)
 
-library(datasets)
-data <- mtcars
-list <- 1:32
-data <- data.frame(data, list)
-
-lines(data$list, data$hp)
+plot(mtcars$list, mtcars$hp, type = "l")
+plot(mtcars$hp, type = "l", ylab = "Horsepower", main = "jqavjwvjch")
 
 # Question 4
 
