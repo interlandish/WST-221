@@ -1,5 +1,6 @@
 library(ggplot2)
 library(qqplotr)
+library(car)
 
 normalSample <- rnorm(10000, mean = 5, sd = 5)
 binomialSample <- rbinom(10000, 5, 0.7)
@@ -47,11 +48,12 @@ hist(normalZn2)
 hist(binomialZn2)
 hist(betaZn2)
 
-qqnorm(normalZn2, main = "Normal Zn")
-qqline(normalZn2)
+qqPlot(normalZn1, main = "Normal Zn n = 10")
+qqPlot(normalZn2, main = "Normal Zn n = 1000")
 
-qqnorm(binomialZn2, main = "Binomial Zn")
-qqline(binomialZn2)
+qqPlot(binomialZn1, main = "Binomial Zn with n = 10")
+qqPlot(binomialZn2, main = "Binomial Zn with n = 1000")
 
-qqnorm(betaZn2, main = "Beta Zn")
-qqline(betaZn2)
+qqPlot(betaZn1, main = "Beta Zn with n = 10")
+qqPlot(betaZn2, main = "Beta Zn with n = 1000")
+
