@@ -50,8 +50,8 @@ hist(betaZn2)
 qqnorm(normalZn2, main = "Normal Zn")
 qqline(normalZn2)
 
-qqnorm(binomialZn2, main = "Normal Zn")
+qqnorm(binomialZn2, main = "Binomial Zn")
 qqline(binomialZn2)
 
-qqnorm(betaZn2, main = "Normal Zn")
+qqnorm(betaZn2, main = "Beta Zn")
 qqline(betaZn2)
