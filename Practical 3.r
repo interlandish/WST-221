@@ -3,7 +3,6 @@ library(car)
 
 #Question 1
 
-verifyBeta <- function()
 {
   sampleMeans = numeric(0)
   sampleVariances <- numeric(0)
@@ -20,11 +19,9 @@ verifyBeta <- function()
   print(paste("Theoretical Variance: ", theoreticalSampleVariance , " vs emperical var: ", var(sampleMeans)))
   print(paste("Theoretical Sample Variance: ", theoreticalVariance, " vs emperical sample variance", mean(sampleVariances)))
 }
-verifyBeta()
 
 #Question 2
 
-verifyNormal <- function()
 {
   XMeans <- numeric()
   YMeans <- numeric()
@@ -56,23 +53,33 @@ verifyNormal <- function()
   print(paste("X - Y Empertical Variance", var(X_YMeans), "vs X - Y Theoretical Variance", THeoreticalX_YVariance))
   qqPlot(XMeans, main = "X bar  QQ Plot")
   qqPlot(X_YMeans, main = "X - Y QQ Plot")
-  
-  chi <- (1050/sqrt(XTheoreticalVariance)) * (XMeans - XTheoreticalMean)^2
-  hist(chi, 100, probability = TRUE)
-  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
-  
-  chin <- (1040 - 1)/XTheoreticalVariance * XVariances
-  hist(chin, 100, probability = TRUE)
-  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
 }
-verifyNormal()
 
-verifySquaredNormal <- function()
 {
   X <- rnorm(1000, 0, 1)^2
   hist(X,100,probability=TRUE)
   lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
 }
-verifySquaredNormal()
 
 #Question 6
+  chi <- (1040/1) * (XMeans - XTheoreticalMean)^2
+  hist(chi, 100, probability = TRUE)
+  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
+  
+  #Question 7
+  chin <- (1040 - 1)/1 * XVariances
+  hist(chin, 100, probability = TRUE)
+  lines(seq(900,1200,by=0.1), dchisq(seq(900,1200,by=0.1), 1040 - 1),lwd=2)
+
+  #Question 8
+  t <- (sqrt(1040) / sqrt(XVariances) ) * (XMeans - 0)
+  hist(t, 100, probability = TRUE)
+  lines(seq(-3, 3, by = 0.1), dt(seq(-3, 3, by = 0.1), 1040 - 1), lwd = 2)
+  
+  #Question 9
+  f <- (XVariances / 1) / ( YVariances / 16)
+  hist(f, 100, probability =TRUE)
+  lines(seq(0.7, 1.5, by = 0.01), df(seq(0.7, 1.5, by = 0.01), 1040 - 1, 1050 - 1), lwd = 2)
+  
+  
+  
