@@ -31,7 +31,6 @@ verifyNormal <- function()
   XVariances <- numeric()
   YVariances <- numeric()
   
-  
   XTheoreticalMean = 0
   YTheoreticalMean = 5
   XTheoreticalVariance = 1/1040
@@ -57,6 +56,23 @@ verifyNormal <- function()
   print(paste("X - Y Empertical Variance", var(X_YMeans), "vs X - Y Theoretical Variance", THeoreticalX_YVariance))
   qqPlot(XMeans, main = "X bar  QQ Plot")
   qqPlot(X_YMeans, main = "X - Y QQ Plot")
+  
+  chi <- (1050/sqrt(XTheoreticalVariance)) * (XMeans - XTheoreticalMean)^2
+  hist(chi, 100, probability = TRUE)
+  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
+  
+  chin <- (1040 - 1)/XTheoreticalVariance * XVariances
+  hist(chin, 100, probability = TRUE)
+  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
 }
-
 verifyNormal()
+
+verifySquaredNormal <- function()
+{
+  X <- rnorm(1000, 0, 1)^2
+  hist(X,100,probability=TRUE)
+  lines(seq(0,5,by=0.1),dchisq(seq(0,5,by=0.1),1),lwd=2)
+}
+verifySquaredNormal()
+
+#Question 6
