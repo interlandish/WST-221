@@ -70,3 +70,49 @@ hood2 = function(r, parameters)
 optim(c(1, 1), hood2, r = weisample)
 
 # Question 5
+eta = 5
+y = runif(10000, 0, 1)
+
+x = eta - log(1 - y)
+
+ddexp = function(c, eta)
+{
+  return(exp(-x + eta))
+}
+
+hood3 = function(x, eta){
+  if(eta > min(x))
+  {
+    return(10 ^ 6)
+  }
+  lik = sum(log(ddexp(x, eta)))
+  return(-lik)
+}
+
+results = vector()
+
+idx = 1
+for(i in seq(4.1, 6, 0.001))
+{
+  results[idx] = -hood3(x, i)
+  idx = idx + 1
+}
+ivec = seq(4.1, 6, 0.001)
+mlaeta = ivec[which.max(results)]
+plot(ivec, results)
+print(mlaeta)
+
+mleeta = optim(3, hood3, x = x)
+mleetamin = min(x)
+
+mlaeta
+mleeta
+mleetamin
+
+
+
+
+
+
+
+
