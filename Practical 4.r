@@ -55,3 +55,18 @@ hood = function(e,parameters)
 
 optim(c(2,2), hood,e = sample)
 
+#Question 4
+
+weisample = rweibull(10000, shape = 2, scale = 5)
+
+hood2 = function(r, parameters)
+{
+  beta = parameters[1]
+  theta = parameters[2]
+  lik = sum(log(dweibull(r, shape = beta, scale = theta)))
+  return(-lik)
+}
+
+optim(c(1, 1), hood2, r = weisample)
+
+# Question 5
