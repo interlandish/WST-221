@@ -40,3 +40,18 @@ thetas = seq(from = 0.1, to = 2, by = 0.01)
 plot(x = thetas, y = thetaestimates)
 
 optim(0.1, liklihood, x = x)
+
+#Question 3
+
+sample = rnorm(10000, 5, 5)
+
+hood = function(e,parameters)
+{
+  mu = parameters[1]
+  sigma = parameters[2]
+  lik = sum(log(dnorm(e, mu, sigma)))
+  return(-lik)
+}
+
+optim(c(2,2), hood,e = sample)
+
