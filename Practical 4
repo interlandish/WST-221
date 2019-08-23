@@ -1,0 +1,19 @@
+#quesiton 1
+
+n = 10000
+x = runif(n, 2,5)
+xbar = mean(x)
+
+
+a = 1
+b = 2*xbar - 4*xbar
+c = 4* xbar*xbar - (3/n)*sum(x^2)
+
+mme = quadratic(a, b, c)
+mmetheta1 = min(mme)
+mmetheta2 = max(mme)
+
+mmetheta1
+mmetheta2
+
+
