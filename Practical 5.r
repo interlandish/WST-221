@@ -127,8 +127,30 @@ lines(seq(0.8, 0.83, 0.001), dnorm(seq(0.8, 0.83, 0.001), theoretical, sqrt(theo
 
 
 
+#Question 3
 
+n  = 1000
+simsize = 1000
+eta = 7
+eta_xbarmin = vector()
+etay1 = vector()
 
+for(i in 1:simsize)
+{
+  y = runif(n, 0, 1)
+  x = eta - log(1 - y)
+  eta_xbarmin[i] = mean(x) -1
+  etay1[i] = min(x)
+}
 
+print(abs(mean(eta_xbarmin)) - eta)
+print(abs(mean(etay1)) - eta)
 
+msexbar = var(eta_xbarmin)
+msey1 = mean((etay1 - eta)^2)
+
+msexbar
+msey1
+
+# xbar supposed to be biased
 
