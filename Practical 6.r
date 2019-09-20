@@ -29,3 +29,25 @@ print(contain/nsim)
 
 
 #Question 2
+n = 1000
+nsim = 10000
+
+contain = 0
+
+mu = 3
+sigma = 2
+
+z = qnorm(0.975, 0, 1)
+
+for(i in 1:nsim)
+{
+  x = rnorm(n, mu, sigma )
+  
+  lowerbound = mean(x) - z*(sigma/sqrt(n))
+  upperbound = mean(x) + z*(sigma/sqrt(n))
+  
+  if(mu <= upperbound & mu >= lowerbound){contain = contain + 1}
+
+}
+
+print(paste("The true value of mu is contained in the interval ", contain/nsim, " of the time"))
