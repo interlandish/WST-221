@@ -39,3 +39,28 @@ bayesbeta2 = mean(betaprior2)
 bayesuni
 bayesbeta1
 bayesbeta2
+
+#Question 2
+
+n = 10000
+
+beta = 0.500
+kappa = 0.500
+
+x = rpois(n, 0.7)
+
+mle = mean(x)
+mle
+
+parameter1 = 1/(n + 1/beta)
+parameter2 = sum(x) + kappa
+
+Tee = parameter1 * parameter2
+Tee
+
+# works best for small kappa and large beta, small kappa and beta are also quite close
+# work out and equation median for a gamma distribution
+
+theta = rgamma(n, parameter2, 1/parameter1)
+median(theta)
+
