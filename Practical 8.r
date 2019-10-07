@@ -16,8 +16,8 @@ plot(powerA ~ thetavec, type = "b",
      xlim = c(0.3, 3), 
      main = "Power of the test")
 
-lines(powerB ~ thetavec, col = "red", lwd = 3, plch = 18, type = "b")
-lines(powerC ~ thetavec, col = "green", lwd = 3, plch = 14, type = "b")
+lines(powerB ~ thetavec, col = "red", lwd = 3, pch = 18, type = "b")
+lines(powerC ~ thetavec, col = "green", lwd = 3, pch = 14, type = "b")
 legend("bottomright", legend = c("Test 1", "Test B", "Test c"), 
                                 col = c("blue", "red", "green"),
                                 pch = c(5, 18, 14), 
