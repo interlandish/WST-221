@@ -27,3 +27,16 @@ legend("bottomright", legend = c("Test 1", "Test B", "Test c"),
                                 text.col = "black", 
                                 horiz = F, 
                                 inset = c(0.1, 0.1))
+
+
+
+#Question 1.4.3
+nvec = seq(20, 30, 1)
+dfvector = 2* nvec
+
+chivec = qchisq(0.95, dfvector)
+
+powern = pchisq(chivec/2, dfvector, lower.tail = FALSE)
+
+plot(powern ~ nvec, xlab = "x", ylab = "Power", col = "blue", lwd = 8, pch = 1, ylim = c(min(powern), max(powern)), main = "Power as a function of n")
+
