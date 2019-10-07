@@ -18,7 +18,7 @@ plot(powerA ~ thetavec, type = "b",
 
 lines(powerB ~ thetavec, col = "red", lwd = 3, pch = 18, type = "b")
 lines(powerC ~ thetavec, col = "green", lwd = 3, pch = 14, type = "b")
-legend("bottomright", legend = c("Test 1", "Test B", "Test c"), 
+legend("bottomright", legend = c("Test A", "Test B", "Test C"), 
                                 col = c("blue", "red", "green"),
                                 pch = c(5, 18, 14), 
                                 pt.cex = 2, 
