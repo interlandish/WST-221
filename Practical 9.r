@@ -108,3 +108,30 @@ hypfiff = function(x, y, d, alpha)
 }
 
 hypfiff(x, y, d, alpha)
+
+#Quesi\tion 2.1
+
+x1 = rnorm(1000, 5, 4)
+x2 = rnorm(1200, 6, 4)
+
+r = 1
+alpha = 0.05
+
+hype2sample = function(x1, x2, r, alpha)
+{
+  n1 =  length(x1)
+  n2 = length(x2)
+  ts = (var(x1)/var(x2))
+  criticallower = qf(alpha/2, n1 -1, n2 -1)
+  criticalupper = qf(1 - alpha/2, n1 -1, n2 - 1)
+  
+  if(ts < criticallower || ts > criticalupper)
+  {
+    print(paste("Reject HoL var1/var2", r, "."))
+  }
+  else
+  {
+    print(paste("Do not reject HO"))
+  }
+}
+hype2sample(x1, x2, r, alpha)
