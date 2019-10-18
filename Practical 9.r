@@ -159,3 +159,17 @@ mvec = seq(1, 100, 1) # alternative
 
 survivalvec = sapply(mvec, survivaltime)
 plot(survivalvec ~ mvec, xlab = "Number of components", ylab = "Mean survival time", main = "Survival time influenced by components")
+
+reliability = function(m)
+{
+  return(1 - (1 - exp(-200/100))^m)
+}
+
+
+mvec = 1:100
+mvec = seq(1, 100, 1) # alternative
+
+reliabilityvec = sapply(mvec, reliability)
+
+plot(reliabilityvec ~ mvec, xlab = "Number of compenents", ylab = "relaibilty after 200 hours", main = "Reliabilty oafter 200 hours influenced by number of compenets
+     ")
