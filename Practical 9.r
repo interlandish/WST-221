@@ -135,3 +135,27 @@ hype2sample = function(x1, x2, r, alpha)
   }
 }
 hype2sample(x1, x2, r, alpha)
+#Question 2
+
+#1. y 6th order statistic
+
+#2. 100 hours
+
+#2.4
+
+
+survivaltime = function(m)
+{
+  sum = 0
+  for(i in 1:m)
+  {
+    sum = sum + 1/i
+  }
+  return(sum * 100)
+}
+
+mvec = 1:100
+mvec = seq(1, 100, 1) # alternative
+
+survivalvec = sapply(mvec, survivaltime)
+plot(survivalvec ~ mvec, xlab = "Number of components", ylab = "Mean survival time", main = "Survival time influenced by components")
