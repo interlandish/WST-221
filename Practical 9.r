@@ -68,3 +68,17 @@ hyp1samplegreat = function(x, sigma, mu0, alpha)
   }
 }
 hyp1samplegreat(x, sigma, mu0, alpha)
+
+d = -1
+alpha = 0.05
+
+mu1 = 1
+sigma1 = 1
+n1 = 1000
+
+mu2 = 6
+sigma2 = 1
+n2 = 1200
+
+x = rnorm(n1, mu1, sigma1)
+y = rnorm(n2, mu2, sigma2)
