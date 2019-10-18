@@ -82,3 +82,29 @@ n2 = 1200
 
 x = rnorm(n1, mu1, sigma1)
 y = rnorm(n2, mu2, sigma2)
+
+hypfiff = function(x, y, d, alpha)
+{
+  n1 = length(x)
+  n2 = length(y)
+  
+  xbar = mean(x)
+  sx = var(x)
+  
+  ybar = mean(y)
+  sy = var(y)
+  
+  ts = ((xbar - ybar) - d)/(sqrt(sx/n1 + sy/n2))
+  critical = qnorm(1 - alpha/2)
+  
+  if(abs(ts) > critical)
+  {
+    print(paste("Reject HO: mu1 - mu2 = ", d, "."))
+  }
+  else
+  {
+    print(paste("Do not reject Ho"))
+  }
+}
+
+hypfiff(x, y, d, alpha)
